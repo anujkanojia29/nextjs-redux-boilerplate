@@ -2,31 +2,11 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
 import { authReducer } from '@/store/reducers/authSlice';
 import { persistStore, persistReducer } from 'redux-persist';
-import createWebStorage from 'redux-persist/es/storage/createWebStorage';
-
-const createNoopStorage = () => {
-  return {
-    getItem() {
-      return Promise.resolve(null);
-    },
-    setItem(_key: string, value: number) {
-      return Promise.resolve(value);
-    },
-    removeItem() {
-      return Promise.resolve();
-    },
-  };
-};
-
-const storage =
-  typeof window !== "undefined"
-    ? createWebStorage("local")
-    : createNoopStorage();
-
+import storage from 'redux-persist/lib/storage';
 
 const authPersistConfig = {
   key: "auth",
-  storage,
+  storage: storage,
   whitelist: ["loggedIn"],
 };
 

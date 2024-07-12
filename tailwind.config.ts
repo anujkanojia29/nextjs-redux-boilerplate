@@ -27,7 +27,7 @@ const config: Config = {
         accent: '#ff4081',
         'accent-light': '#ff79b0',
         'accent-dark': '#c60055',
-        background: '#f5f5f5',
+        background: '#d5d5d5',
         surface: '#ffffff',
         error: '#b00020',
         warning: '#ff9800',
